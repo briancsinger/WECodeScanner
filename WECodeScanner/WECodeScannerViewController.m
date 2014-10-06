@@ -26,8 +26,9 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     // Do any additional setup after loading the view.
     if (_scannerView.flashModeAvailable) {
         UIBarButtonItem *torchToggle = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringWithDefaultValue(@"bcscanner_torch", nil, [NSBundle mainBundle], @"Torch", @"The title of the torch mode button") style:UIBarButtonItemStyleBordered target:self action:@selector(toggleFlash:)];
@@ -52,7 +53,10 @@
 
 - (void) toggleFlash:(id)sender {
     self.scannerView.flashEnabled = !self.scannerView.flashEnabled;
+    
+    [self.scannerView.videoCaptureDevice lockForConfiguration:nil];
     self.scannerView.videoCaptureDevice.torchMode = (self.scannerView.flashEnabled ? AVCaptureTorchModeOn : AVCaptureTorchModeOff);
+    [self.scannerView.videoCaptureDevice unlockForConfiguration];
 }
 
 @end

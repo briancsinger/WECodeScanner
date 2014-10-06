@@ -215,7 +215,7 @@
     
 }
 
-- (BOOL)isTorchModeAvailable
+- (BOOL)isFlashModeAvailable
 {
     return _videoCaptureDevice.isTorchAvailable;
 }
