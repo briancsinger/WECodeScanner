@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class WECodeScannerView;
+#import "WECodeScannerView.h"
 
 @interface WECodeScannerViewController : UIViewController
 

@@ -7,7 +7,6 @@
 //
 
 #import "WECodeScannerViewController.h"
-#import "WECodeScannerView.h"
 
 @interface WECodeScannerViewController ()
 - (void) toggleFlash:(id)sender;
