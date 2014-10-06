@@ -24,6 +24,7 @@
     NSTimer *_timer;
     BOOL _scanning;
     BOOL _wasScanning;
+    AVCaptureDevice *_videoCaptureDevice;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -34,22 +35,22 @@
         self.captureSession = [[AVCaptureSession alloc] init];
         [self.captureSession setSessionPreset:AVCaptureSessionPreset640x480];
         
-        AVCaptureDevice *videoCaptureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        _videoCaptureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
         NSError *error = nil;
         
-        if ([videoCaptureDevice lockForConfiguration:&error]) {
-            if (videoCaptureDevice.isAutoFocusRangeRestrictionSupported) {
-                [videoCaptureDevice setAutoFocusRangeRestriction:AVCaptureAutoFocusRangeRestrictionNear];
+        if ([_videoCaptureDevice lockForConfiguration:&error]) {
+            if (_videoCaptureDevice.isAutoFocusRangeRestrictionSupported) {
+                [_videoCaptureDevice setAutoFocusRangeRestriction:AVCaptureAutoFocusRangeRestrictionNear];
             }
-            if ([videoCaptureDevice isFocusModeSupported:AVCaptureFocusModeContinuousAutoFocus]) {
-                [videoCaptureDevice setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
+            if ([_videoCaptureDevice isFocusModeSupported:AVCaptureFocusModeContinuousAutoFocus]) {
+                [_videoCaptureDevice setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
             }
-            [videoCaptureDevice unlockForConfiguration];
+            [_videoCaptureDevice unlockForConfiguration];
         } else {
             NSLog(@"Could not configure video capture device: %@", error);
         }
         
-        AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:videoCaptureDevice error:&error];
+        AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:_videoCaptureDevice error:&error];
         if(videoInput) {
             [self.captureSession addInput:videoInput];
         } else {
@@ -192,5 +193,35 @@
         }
     }
 }
+
+
+#pragma mark - flash mode
+
+@synthesize flashEnabled = _flashEnabled;
+
+- (void)setFlashEnabled:(BOOL)flashEnabled
+{
+    _flashEnabled = flashEnabled;
+    if (self.isFlashModeAvailable)
+    {
+//        self.previewView.flashMode = (flashEnabled ? AVCaptureTorchModeOn : AVCaptureTorchModeOff);
+    }
+}
+
+- (BOOL)isFlashEnabled {
+    return _flashEnabled && self.isFlashModeAvailable;
+}
+
+- (void)setFlashButtonEnabled:(BOOL)flashButtonEnabled
+{
+    _flashButtonEnabled = flashButtonEnabled;
+    
+}
+
+- (BOOL)isTorchModeAvailable
+{
+    return _videoCaptureDevice.isTorchAvailable;
+}
+
 
 @end
