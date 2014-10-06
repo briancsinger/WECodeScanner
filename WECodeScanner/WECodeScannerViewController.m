@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Werner IT Consultancy. All rights reserved.
 //
 
+//TODO: Setup touch to focus
+
 #import "WECodeScannerViewController.h"
 
 @interface WECodeScannerViewController ()
