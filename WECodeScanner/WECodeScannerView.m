@@ -8,12 +8,10 @@
 
 #import "WECodeScannerView.h"
 #import "WECodeScannerMatchView.h"
-#import <AVFoundation/AVFoundation.h>
 
 @interface WECodeScannerView () <AVCaptureMetadataOutputObjectsDelegate>
 
 @property (nonatomic, strong) AVCaptureSession *captureSession;
-@property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 @property (nonatomic, strong) WECodeScannerMatchView *matchView;
 @property (nonatomic, strong) NSDate *lastDetectionDate;
 @property (nonatomic, strong) AVCaptureMetadataOutput *metadataOutput;
@@ -24,7 +22,6 @@
     NSTimer *_timer;
     BOOL _scanning;
     BOOL _wasScanning;
-    AVCaptureDevice *_videoCaptureDevice;
 }
 
 - (id)initWithFrame:(CGRect)frame

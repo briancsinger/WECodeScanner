@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0EAFCB19E24310005E50BA /* WECodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0EAFCA19E24310005E50BA /* WECodeScannerViewController.m */; };
 		7445617118083EE200CB9639 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7445617018083EE200CB9639 /* Foundation.framework */; };
 		7445617318083EE200CB9639 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7445617218083EE200CB9639 /* CoreGraphics.framework */; };
 		7445617518083EE200CB9639 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7445617418083EE200CB9639 /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F0EAFC919E24310005E50BA /* WECodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WECodeScannerViewController.h; sourceTree = "<group>"; };
+		5F0EAFCA19E24310005E50BA /* WECodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WECodeScannerViewController.m; sourceTree = "<group>"; };
 		7445616D18083EE200CB9639 /* WECodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WECodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7445617018083EE200CB9639 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7445617218083EE200CB9639 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -177,6 +180,8 @@
 				744561AA18083FE700CB9639 /* WECodeScannerView.m */,
 				744561AC18083FE700CB9639 /* WECodeScannerMatchView.h */,
 				744561A918083FE700CB9639 /* WECodeScannerMatchView.m */,
+				5F0EAFC919E24310005E50BA /* WECodeScannerViewController.h */,
+				5F0EAFCA19E24310005E50BA /* WECodeScannerViewController.m */,
 			);
 			name = Implementation;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 			files = (
 				7445618A18083EE200CB9639 /* WEViewController.m in Sources */,
 				7445618118083EE200CB9639 /* WEAppDelegate.m in Sources */,
+				5F0EAFCB19E24310005E50BA /* WECodeScannerViewController.m in Sources */,
 				744561AD18083FE700CB9639 /* WECodeScannerMatchView.m in Sources */,
 				744561BD180BEB6400CB9639 /* WESoundHelper.m in Sources */,
 				744561AE18083FE700CB9639 /* WECodeScannerView.m in Sources */,

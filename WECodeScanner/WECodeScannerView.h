@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @class WECodeScannerView;
 
@@ -22,6 +23,8 @@
 
 @interface WECodeScannerView : UIView
 
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
+@property (nonatomic, assign) AVCaptureDevice *videoCaptureDevice;
 @property (nonatomic, weak) id <WECodeScannerViewDelegate> delegate;
 @property (nonatomic, assign) NSTimeInterval quietPeriodAfterMatch;
 
